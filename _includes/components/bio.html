@@ -1,0 +1,101 @@
+<div id="bio">
+	<div class="row fluid large-collapse medium-collapse small-collapse" data-equalizer>
+		<div class="small-12 medium-12 large-6 columns" data-equalizer-watch>
+			<div class="row large-collapse medium-collapse small-collapse">
+				<div class="small-12 medium-6 large-6 columns">
+					<picture>
+						<img
+							sizes="(max-width: {{ site.img-bio-max-size }}px)100vw, {{ site.img-bio-max-size }}px"
+							
+							srcset=" 
+								{% for break in site.img-bio-breakpoints %}
+								{{ site.img-bio-path }}/{{ break }}/{{ site.img-profile }} {{ break }}w,
+								{% endfor %} 
+							"
+							
+							src="{{ site.img-bio-path }}/{{ site.img-max-width }}/{{ site.img-profile }}"
+							alt="{{ site.author }} profile"
+						>
+					</picture><!-- profile pic -->
+					<picture class="hide-for-small">
+						<img
+							sizes="(max-width: {{ site.img-bio-max-size }}px)100vw, {{ site.img-bio-max-size }}px"
+							
+							srcset=" 
+								{% for break in site.img-bio-breakpoints %}
+								{{ site.img-bio-path }}/{{ break }}/{{ site.img-card }} {{ break }}w,
+								{% endfor %} 
+							"
+							
+							src="{{ site.img-bio-path }}/{{ site.img-max-width }}/{{ site.img-card }}"
+							alt="{{ site.author }} card"
+						>
+					</picture><!-- card pic -->
+				</div>	
+
+				<div class="small-12 medium-6 large-6 columns txt-bio" style="background: #{{ site.txt-bio-bg }};" data-equalizer-watch>
+					<div class="small-12 medium-12 large-12 columns v-center" itemscope itemtype="http://schema.org/Person">
+						<div class="hide">
+							<div itemscope itemtype="http://schema.org/Person">
+								<a itemprop="url" href="{{ site.url }}">
+									<div itemprop="name"><strong>{{ site.author }}</strong></div>
+								</a>
+								<div itemscope itemtype="http://schema.org/Organization">
+									<span itemprop="name">{{ site.title }}</span>
+								</div>
+								<div itemprop="jobtitle">{{ site.job }}</div>
+								<div itemprop="description">{{ site.description }}</div>
+								<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+									<div>
+										<span itemprop="addressLocality">{{ site.city }}</span>, 
+										<span itemprop="addressRegion">{{ site.region }}</span>
+									</div>
+									<div itemprop="addressCountry">{{ site.country }}</div>
+								</div>
+								<div itemprop="email">{{ site.email }}</div>
+							</div>
+						</div>
+						<p>
+							{{ site.txt-bio }} <!-- txt bio -->
+							<span class="hide-for-large-up">
+								<br>
+								{{ site.txt-bio-2 }} 
+							</span>
+							<br><br>
+							<a href="{{ site.bio-btn-link }}" class="button large btn-outline-dark" target="blank" >{{ site.bio-btn-txt }} | <i class="fa fa-linkedin-square" aria-hidden="true"></i></a><!-- actions bio -->
+						</p>
+					</div> 
+				</div>
+			</div>			 
+		</div><!--bio -->
+
+		<div class="small-12 medium-12 large-6 columns show-for-large-up">
+			<div class="row large-collapse medium-collapse small-collapse">
+
+				{% for skill in site.skills | limit: 4 %}
+				<div class="small-6 medium-6 large-6 columns skill">
+					<picture class="hide-for-small-only">
+						<img
+							sizes="(max-width: {{ site.img-bio-max-size }}px)100vw, {{ site.img-bio-max-size }}px"
+							
+							srcset=" 
+								{% for break in site.img-bio-breakpoints %}
+								{{ site.img-bio-path }}/{{ break }}/{{ site.img-bio-bg }} {{ break }}w,
+								{% endfor %} 
+							"
+							
+							src="/lib/imgs/{{ site.img-max-width }}/{{ img-bio-bg }}"
+							alt="{{ site.author }} bio bg"
+						>
+					</picture>
+					<div class="small-12 medium-12 large-12 columns v-center">
+						<p>
+							<img class="icon" src="{{ skill.icon }}"><br>{{ skill.title }}
+						</p>
+					</div>
+				</div> <!-- skill -->
+				{% endfor %}
+			</div>
+		</div><!-- skills -->
+	</div> <!--skil-row fluid -->
+</div><!-- bio -->

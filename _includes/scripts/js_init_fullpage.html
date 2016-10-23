@@ -1,4 +1,5 @@
 {% if page.auto-scroll == true %}
+  
   <script type="text/javascript">
     $(document).ready(function() {
       $('#fullpage-scroll').fullpage({
@@ -17,7 +18,9 @@
       });
     });
   </script>
+
   {% else %}
+  
   <script type="text/javascript">
     $(document).ready(function() {
       $('#fullpage-noscroll').fullpage({
@@ -26,19 +29,21 @@
         fitToSection: false,
         autoScrolling: false,
         navigation: false,
-        navigationPosition: 'right',
-        navigationTooltips: ['firstSlide', 'secondSlide'],
-        showActiveTooltip: false,
-        controlArrows: false,
+        //navigationPosition: 'right',
+        //navigationTooltips: ['firstSlide', 'secondSlide'],
+        //controlArrows: false,
         animateAnchor: false,
-        slidesNavigation: true,
-        slidesNavPosition: 'bottom',
-        /*afterRender: function () {
-        on page load, start the slideshow
-         slideTimeout = setInterval(function () {
-                $.fn.fullpage.moveSlideRight();
-            }, 3500);
-          },*/
+        slidesNavigation: false,
+        //slidesNavPosition: 'bottom',
+
+        showActiveTooltip: false,
+
+        //afterRender: function () {
+        //on page load, start the slideshow
+         //slideTimeout = setInterval(function () {
+                //$.fn.fullpage.moveSlideRight();
+            //}, 3500);
+         // },
 
         /* Hide the slides container before the next slide loads
         onSlideLeave: function(anchorLink, index, slideIndex, direction) {
@@ -59,7 +64,10 @@
             clearInterval(slideTimeout);
           }
         }*/
-      });
+      }
+      );
     });
+
   </script>
+
   {% endif %}
